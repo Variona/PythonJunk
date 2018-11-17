@@ -1,13 +1,22 @@
 #5/11/2018
 import random
 
+vocab_obj = open("english_dictionary.txt", "r")
+vocab_list = []
+
+for line in vocab_obj:
+	vocab_list.append(line)
 
 def chooseWord():
-    wordList = ["hello", "day", "alphabet", "collage", "germany", "war", "black hole", "earth", "xenophobia", "soup"]
+	wordList = vocab_list
+	while True:
+		chosenWord = wordList[random.randrange(len(wordList))]
+		if len(chosenWord) > 10:
+			continue
+		else:
+			break
 
-    chosenWord = wordList[random.randrange(len(wordList))]
-
-    return chosenWord
+	return chosenWord
 
 
 def letterInWord(letter, word, coolList):
@@ -35,6 +44,7 @@ while True:
         if "*" in gameList:
             if count == maxGuess:
                 print("You lost!")
+                print("The word was: " + gameWord)
             continue
         else:
             print("Congrats! You won!")
@@ -46,6 +56,5 @@ while True:
     else:
         print("Thanks for playing!")
         break
-
 
 
