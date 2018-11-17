@@ -1,4 +1,5 @@
 #11/16/2018
+
 import random
 
 vocab_obj = open("english_dictionary.txt", "r")
