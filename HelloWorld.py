@@ -15,5 +15,6 @@ while True:
 		print(x)
 		break
 	if count >= len(x):
+		print(temp)
 		temp = ""
 		count = 0
