@@ -1,11 +1,13 @@
-#11/16/2018
+# Created 2018/11/16 
+# Updated 2020/1/25
 import random
 
 vocab_obj = open("english_dictionary.txt", "r")
 vocab_list = []
 
 for line in vocab_obj:
-	vocab_list.append(line)
+	vocab_list.append(line.strip("\n"))
+vocab_obj.close()
 
 def chooseWord():
 	wordList = vocab_list
@@ -38,7 +40,10 @@ while True:
 	while count < maxGuess:
 		print("You have " + str(maxGuess) + " guesses left!")
 		userInput = str(input("Choose your letter!: "))
-		print(letterInWord(userInput, gameWord, gameList))
+		letterList = (letterInWord(userInput, gameWord, gameList))
+		for i in letterList:
+			print(i,end="")
+		print()
 		maxGuess -= 1
 
 		if "*" in gameList:
